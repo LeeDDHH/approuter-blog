@@ -12,4 +12,4 @@ slug: "this-is-my-first-blog-post"
 
 Welcome to my first blog post! In this article, I will share my thoughts on various tools and experiences that have shaped my life.
 
-![image](/blog-images/chill-guy.jpg)
+![image](https://i.namu.wiki/i/gWENhpNKtbAg58J9i2Be_JlHXRI-yEhZ0ANXs9f0jO8KIQCnet2qjweEhhosPn_bHkq_bdLBzV54nCzYci5Oj77xXWphUounaXGLhaQgohj05oMSOLAiLG4Pc8cS4qz62gNXyjXIqD42_bX9EV8YIw7_WWhqkb6R3g4_CXdubm4.webp)
