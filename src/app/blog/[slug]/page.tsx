@@ -7,7 +7,9 @@ type PostPageProps = {
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
-  const postData = await getPostData(params.slug);
+  // NOTE: サーバーコンポーネントでは、awaitを使用してデータを取得する必要がある
+  const { slug } = await params;
+  const postData = await getPostData(slug);
   return (
     <div className="whitespace-pre-line	blog-article">
       <article>
