@@ -14,8 +14,7 @@ const BlogClient = ({ allPostsData, allTags }: BlogClientProps) => {
           Blog
       </h2>
       <p className="sm:mt-8 mt-4 justify-center text-center">
-          Incessant yapping about frontend, tech, hacks and life&#39;s nuances manifested in its
-          textual form.
+          フロントエンド、技術、何かしらの備忘録などを言語化する。
       </p>
       {/* Display All Tags */}
       <AllTags allTags={allTags} />
