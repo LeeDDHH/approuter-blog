@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import EmotionRegistry from "./lib/EmotionRegistry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,15 +31,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="shadow-md text-white bg-teal-500">
-          <nav className="flex justify-between items-center p-4">
-            <Link href="/">Home</Link>
-            <Link href="/blog">Blog</Link>
-          </nav>
-        </header>
-        <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5 bg-black">
-          {children}
-        </div>
+        <EmotionRegistry>
+          <header className="shadow-md text-white bg-teal-500">
+            <nav className="flex justify-between items-center p-4">
+              <Link href="/">Home</Link>
+              <Link href="/blog">Blog</Link>
+            </nav>
+          </header>
+          <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5 bg-black">
+            {children}
+          </div>
+        </EmotionRegistry>
       </body>
     </html>
   );
