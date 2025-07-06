@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  compiler: {
-    emotion: true,
-  },
+  /* config options here */
 };
 
 export default nextConfig;
