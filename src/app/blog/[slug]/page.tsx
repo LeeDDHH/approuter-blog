@@ -1,6 +1,7 @@
 import { getPostData } from '../../lib/utilities';
 import 'github-markdown-css/github-markdown.css' // NOTE: GitHubのMarkdown CSSをインポート
 import 'highlight.js/styles/hybrid.css'; // NOTE: コードハイライト用のCSSをインポート
+import '../../_css/post.css'
 
 // cf. https://nextjs.org/docs/app/api-reference/file-conventions/page
 type PostPageProps = {
