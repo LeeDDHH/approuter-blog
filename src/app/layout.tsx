@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './_css/globals.css';
+import 'fontsource-montserrat/index.css';
 import Link from 'next/link';
 
 const geistSans = Geist({
