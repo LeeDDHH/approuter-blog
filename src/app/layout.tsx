@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <meta charSet="UTF-8" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -1,4 +1,5 @@
 import { getPostData } from '../../lib/utilities';
+import 'github-markdown-css/github-markdown-dark.css'
 
 // cf. https://nextjs.org/docs/app/api-reference/file-conventions/page
 type PostPageProps = {
@@ -17,6 +18,7 @@ const PostPage = async ({ params }: PostPageProps) => {
         <h2 className="font-bold text-4xl flex items-center justify-center mb-6">
             {postData.title}
         </h2>
+        {/* cf. https://github.com/sindresorhus/github-markdown-css */}
         <div className="markdown-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </div>)
