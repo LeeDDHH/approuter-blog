@@ -1,9 +1,10 @@
 import { getPostData } from '../../lib/utilities';
 
+// cf. https://nextjs.org/docs/app/api-reference/file-conventions/page
 type PostPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
