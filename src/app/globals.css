@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
+/* NOTE: github-markdown-css のライトモードに合わせる */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2328;
 }
 
 @theme inline {
@@ -12,10 +13,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* NOTE: github-markdown-css のダークモードに合わせる */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0d1117;
+    --foreground: #f0f6fc;
   }
 }
 
