@@ -17,26 +17,27 @@ describe('PostCassette', () => {
     jest.setSystemTime(new Date('2024-01-10T00:00:00'))
   })
 
+  // NOTE: テストの前に一度だけrenderして、全てのテストで共有する
+  beforeEach(() => {
+    render(<PostCassette title={mockPost.title} date={mockPost.date} tags={mockPost.tags} slug={mockPost.slug} summary={mockPost.summary} />)
+  })
+
   afterAll(() => {
     jest.useRealTimers()
   })
   it('should render post title', () => {
-    render(<PostCassette title={mockPost.title} date={mockPost.date} tags={mockPost.tags} slug={mockPost.slug} summary={mockPost.summary} />)
     expect(screen.getByText('Test Post Title')).toBeInTheDocument()
   })
 
   it('should render post excerpt', () => {
-    render(<PostCassette title={mockPost.title} date={mockPost.date} tags={mockPost.tags} slug={mockPost.slug} summary={mockPost.summary} />)
     expect(screen.getByText('This is a test excerpt for the post.')).toBeInTheDocument()
   })
 
   it('should render post date', () => {
-    render(<PostCassette title={mockPost.title} date={mockPost.date} tags={mockPost.tags} slug={mockPost.slug} summary={mockPost.summary} />)
     expect(screen.getByText('1分前')).toBeInTheDocument()
   })
 
   it('should have correct link to post', () => {
-    render(<PostCassette title={mockPost.title} date={mockPost.date} tags={mockPost.tags} slug={mockPost.slug} summary={mockPost.summary} />)
     const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', '/blog/test-post-slug')
   })
