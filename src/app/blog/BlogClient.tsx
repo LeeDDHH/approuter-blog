@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PostData, Tags } from "../lib/utilities";
+import type { PostData, Tags } from "../lib/utilities";
 
 type BlogClientProps = {
   allPostsData: PostData[];

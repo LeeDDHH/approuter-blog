@@ -33,11 +33,11 @@ const getAllPostsData = (): PostData[] => {
         const matterResult = matter(fileContents);
         return {
             id,
-            slug: matterResult.data.slug,
-            date: matterResult.data.date,
-            title: matterResult.data.title,
-            tags: matterResult.data.tags,
-            summary: matterResult.data.summary,
+            slug: matterResult.data['slug'],
+            date: matterResult.data['date'],
+            title: matterResult.data['title'],
+            tags: matterResult.data['tags'],
+            summary: matterResult.data['summary'],
             contentHtml: matterResult.content
         };
     });
@@ -57,7 +57,7 @@ async function getPostData(slug:string): Promise<PostData> {
         const fullPath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const matterResult = matter(fileContents);
-        return matterResult.data.slug === slug;
+        return matterResult.data['slug'] === slug;
     });
 
     if (!matchedFile) {
@@ -72,11 +72,11 @@ async function getPostData(slug:string): Promise<PostData> {
     const contentHtml = processedContent.toString();
 
     return {
-        id: matterResult.data.id,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        tags: matterResult.data.tags,
-        summary: matterResult.data.summary,
+        id: matterResult.data['id'],
+        title: matterResult.data['title'],
+        date: matterResult.data['date'],
+        tags: matterResult.data['tags'],
+        summary: matterResult.data['summary'],
         slug,
         contentHtml,
     };
@@ -92,8 +92,8 @@ const getAllTags = (): Tags => {
         const fullPath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const matterResult = matter(fileContents);
-        if (matterResult.data.tags && Array.isArray(matterResult.data.tags)) {
-            acc.push(...matterResult.data.tags);
+        if (matterResult.data['tags'] && Array.isArray(matterResult.data['tags'])) {
+            acc.push(...matterResult.data['tags']);
         }
         return acc;
     }, []);
