@@ -1,5 +1,5 @@
 import { getPostData } from '../../lib/utilities';
-import 'github-markdown-css/github-markdown-dark.css'
+import 'github-markdown-css/github-markdown.css'
 
 // cf. https://nextjs.org/docs/app/api-reference/file-conventions/page
 type PostPageProps = {

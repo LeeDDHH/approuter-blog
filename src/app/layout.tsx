@@ -36,7 +36,7 @@ export default function RootLayout({
             <Link href="/blog">Blog</Link>
           </nav>
         </header>
-        <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5 bg-black">
+        <div className="max-w-2xl sm:mt-16 mt-4 mx-auto px-5">
           {children}
         </div>
       </body>
