@@ -17,7 +17,7 @@ const PostPage = async ({ params }: PostPageProps) => {
         <h2 className="font-bold text-4xl flex items-center justify-center mb-6">
             {postData.title}
         </h2>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className="markdown-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </div>)
 }
