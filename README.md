@@ -10,6 +10,8 @@ Next.js 15 の App Router を使用したモダンなブログアプリケーシ
 - **ESLint** - コード品質管理
 - **Turbopack** - 高速開発ビルド
 - **Geist Font** - Google Fonts 経由で読み込み
+- **Jest** - テストフレームワーク
+- **React Testing Library** - React コンポーネントのテスト
 
 ## 開発環境のセットアップ
 
@@ -33,6 +35,9 @@ Next.js 15 の App Router を使用したモダンなブログアプリケーシ
 - `npm run build` - 本番用ビルド
 - `npm run start` - 本番サーバーの起動
 - `npm run lint` - ESLint によるコード品質チェック
+- `npm run test` - テストの実行
+- `npm run test:watch` - テストの監視モード
+- `npm run test:coverage` - カバレッジ付きテストの実行
 
 ## プロジェクト構成
 
@@ -67,6 +72,33 @@ Next.js 15 の App Router を使用したモダンなブログアプリケーシ
 - **SEO 対策**: Google 検索上位表示を重視
 - **パフォーマンス**: SSR 重視、高速表示を最優先
 
+## テスト
+
+### テスト環境
+
+- **Jest** - テストフレームワーク
+- **React Testing Library** - React コンポーネントのテスト
+- **@testing-library/jest-dom** - DOM 要素のマッチャー
+- **@testing-library/user-event** - ユーザーイベントのシミュレーション
+
+### テストの実行
+
+```bash
+# 全テストの実行
+npm run test
+
+# 監視モードでテストを実行
+npm run test:watch
+
+# カバレッジ付きでテストを実行
+npm run test:coverage
+```
+
+### テストファイルの場所
+
+- コンポーネントテスト: `src/app/_components/__tests__/`
+- フックテスト: `src/app/lib/hooks/__tests__/`
+
 ## 開発について
 
 このプロジェクトは以下の設計原則に従っています：
@@ -76,6 +108,7 @@ Next.js 15 の App Router を使用したモダンなブログアプリケーシ
 - **TypeScript**: 型安全性と IntelliSense
 - **Tailwind CSS v4**: ユーティリティファーストのスタイリング
 - **SSR 最適化**: 静的サイト生成とサーバーサイドレンダリングの高速化
+- **テスト駆動開発**: Jest と React Testing Library を使用した包括的なテスト
 
 ## デプロイ
 
