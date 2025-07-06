@@ -13,7 +13,7 @@ const PostPage = async ({ params }: PostPageProps) => {
   const { slug } = await params;
   const postData = await getPostData(slug);
   return (
-    <div className="whitespace-pre-line	blog-article">
+    <div className="blog-article">
       <article>
         <h2 className="font-bold text-4xl flex items-center justify-center mb-6">
             {postData.title}
