@@ -17,7 +17,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "incremental": true,
     "plugins": [
       {
@@ -28,7 +27,27 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "noUncheckedIndexedAccess": true, // 配列やオブジェクトのインデックスアクセス時にundefinedチェックを強制
+    "noImplicitOverride": true, // クラス継承時のoverrideキーワードを強制
+    "noPropertyAccessFromIndexSignature": true, // ドット記法での未定義プロパティアクセスを制限
+    "noImplicitReturns": true, // 関数のすべてのコードパスで戻り値を強制
+    "noFallthroughCasesInSwitch": true, // switch文のfallthrough防止
+    "noUncheckedSideEffectImports": true, // 副作用のないインポートのチェック
+    "allowUnusedLabels": false, // 未使用ラベルを禁止
+    "allowUnreachableCode": false, // 到達不可能コードを禁止
+    "exactOptionalPropertyTypes": true, // オプショナルプロパティの厳密な型チェック
+    "noImplicitAny": true, // 暗黙的any型を禁止
+    "useUnknownInCatchVariables": true, // catch句でunknown型を使用
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字を厳密チェック
+    "noImplicitThis": true, // 暗黙的this型を禁止
+    "noUnusedLocals": true, // 未使用のローカル変数を禁止
+    "noUnusedParameters": true, // 未使用のパラメータを禁止
+    "verbatimModuleSyntax": true, // import/exportの明示的な構文を強制
+    "allowSyntheticDefaultImports": true, // default exportがないモジュールのdefault importを許可
+    "declaration": false, // 型定義ファイルの生成を無効化
+    "removeComments": false, // コメントを保持
+    "declarationMap": false // 型定義ファイルのソースマップを無効化
   },
   "include": [
     "next-env.d.ts",
