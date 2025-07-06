@@ -25,19 +25,19 @@ describe('PostCassette', () => {
   afterAll(() => {
     jest.useRealTimers()
   })
-  it('should render post title', () => {
+  it('タイトルが表示されること', () => {
     expect(screen.getByText('Test Post Title')).toBeInTheDocument()
   })
 
-  it('should render post excerpt', () => {
+  it('サマリーが表示されること', () => {
     expect(screen.getByText('This is a test excerpt for the post.')).toBeInTheDocument()
   })
 
-  it('should render post date', () => {
+  it('投稿日からの日時が表示されること', () => {
     expect(screen.getByText('1分前')).toBeInTheDocument()
   })
 
-  it('should have correct link to post', () => {
+  it('記事へのリンクが表示されること', () => {
     const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', '/blog/test-post-slug')
   })

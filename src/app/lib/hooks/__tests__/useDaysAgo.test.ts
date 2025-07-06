@@ -11,27 +11,27 @@ describe('useDaysAgo', () => {
     jest.useRealTimers()
   })
 
-  it('should return 0 for today', () => {
+  it('当日の同時間の場合', () => {
     const { result } = renderHook(() => useDaysAgo('2024-01-15'))
     expect(result.current).toBe('1分前')
   })
 
-  it('should return 1 for yesterday', () => {
+  it('前日の場合', () => {
     const { result } = renderHook(() => useDaysAgo('2024-01-14'))
     expect(result.current).toBe('1日前')
   })
 
-  it('should return 7 for a week ago', () => {
+  it('1週間前の場合', () => {
     const { result } = renderHook(() => useDaysAgo('2024-01-08'))
     expect(result.current).toBe('7日前')
   })
 
-  it('should handle ISO date strings', () => {
+  it('ISO日付データの文字列の場合', () => {
     const { result } = renderHook(() => useDaysAgo('2024-01-10T00:00:00Z'))
     expect(result.current).toBe('5日前')
   })
 
-  it('should handle future dates', () => {
+  it('未来の時間の場合', () => {
     const { result } = renderHook(() => useDaysAgo('2024-01-20'))
     expect(result.current).toBe('1分前')
   })
