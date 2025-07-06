@@ -17,7 +17,10 @@ const BlogClient = ({ allPostsData, allTags }: BlogClientProps) => {
           フロントエンド、技術、何かしらの備忘録などを言語化する。
       </p>
       {/* Display All Tags */}
-      <AllTags allTags={allTags} />
+      <div className="mt-4">
+        <h3 className="text-2xl font-semibold mb-4">Tags</h3>
+        <AllTags allTags={allTags} />
+      </div>
       <h3 className="text-2xl font-semibold sm:mt-8 mt-4">Articles</h3>
       {/* Display All Blog Posts */}
       <ul className="mt-4">
