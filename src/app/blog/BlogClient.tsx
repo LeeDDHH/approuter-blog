@@ -1,5 +1,6 @@
 import type { PostData, Tags } from "../lib/utilities";
 import PostCassette from "../_components/PostCassette";
+import AllTags from "../_components/domains/AllTags";
 
 type BlogClientProps = {
   allPostsData: PostData[];
@@ -17,21 +18,7 @@ const BlogClient = ({ allPostsData, allTags }: BlogClientProps) => {
           textual form.
       </p>
       {/* Display All Tags */}
-      <div className="mt-4">
-        <h3 className="text-2xl font-semibold mb-4">Tags</h3>
-        <div className="flex gap-2 overflow-x-auto">
-          {allTags.map((tag) => {
-            return (
-              <button
-                  key={tag}
-                  className="text-black dark:text-white bg-white dark:bg-black border-2 border-black dark:border-white font-medium text-md rounded-lg p-2"
-              >
-                {tag}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <AllTags allTags={allTags} />
       <h3 className="text-2xl font-semibold sm:mt-8 mt-4">Articles</h3>
       {/* Display All Blog Posts */}
       <ul className="mt-4">
