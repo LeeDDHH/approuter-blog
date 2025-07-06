@@ -25,3 +25,5 @@ fn main() {
     println!("Hello, Neptune!");
 }
 ```
+
+日本語表示の場合
