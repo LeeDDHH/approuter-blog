@@ -24,7 +24,7 @@ const BlogClient = ({ allPostsData, allTags }: BlogClientProps) => {
             return (
               <button
                   key={tag}
-                  className="text-black bg-white font-medium text-md rounded-lg p-2 mr-2"
+                  className="text-black dark:text-white bg-white dark:bg-black border-2 border-black dark:border-white font-medium text-md rounded-lg p-2 mr-2"
               >
                 {tag}
               </button>
@@ -50,7 +50,7 @@ const BlogClient = ({ allPostsData, allTags }: BlogClientProps) => {
                 {tags &&
                   tags.map((tag, index) => (
                   <span key={index}
-                    className="text-black bg-white font-medium text-md rounded-lg p-2 mr-2">
+                    className="text-black dark:text-white bg-white dark:bg-black border-2 border-black dark:border-white font-medium text-md rounded-lg p-2 mr-2">
                     {tag}
                   </span>
                 ))}

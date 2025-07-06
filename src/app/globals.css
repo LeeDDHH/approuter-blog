@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* NOTE: ダークモード用の dark バリエーションを追加する */
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* NOTE: github-markdown-css のライトモードに合わせる */
 :root {
