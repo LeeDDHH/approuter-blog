@@ -1,6 +1,6 @@
 ---
 title: "This is my first blog post"
-date: "2025-01-03T08:57:28.969Z"
+date: "2025-01-03T08:57:28"
 tags:
   - life
   - tools
