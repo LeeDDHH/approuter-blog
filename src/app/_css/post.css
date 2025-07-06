@@ -1,19 +1,19 @@
-ul,li {
+.markdown-body > ul,li {
   list-style: revert;
 }
 
-ul > li:first-child {
+.markdown-body > ul > li:first-child {
   margin-top: 4px;
 }
 
-ul > li:not(:last-child) {
+.markdown-body > ul > li:not(:last-child) {
   margin-bottom: 4px;
 }
 
-ul > li:last-child {
+.markdown-body > ul > li:last-child {
   margin-bottom: 12px;
 }
 
-ol {
+.markdown-body > ol {
   list-style: decimal;
 }
