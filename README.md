@@ -88,3 +88,10 @@ Next.js 15 の App Router を使用したモダンなブログアプリケーシ
 - **代替案**: プロジェクト内フォルダ
 
 その他のデプロイ方法については、[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)を参照してください。
+
+---
+
+# その他考慮事項
+
+- スタイリング
+  - `emotion` が SSR 対応されるようになったら、
