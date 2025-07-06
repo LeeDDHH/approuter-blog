@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
 /**
  * ISO 8601形式の日時から「何日前・何時間前・何分前」かを返すhooks

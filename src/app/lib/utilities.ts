@@ -1,11 +1,11 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import matter from 'gray-matter';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeStringify from 'rehype-stringify';
 import { unified } from 'unified';
 
 export type Tags = string[];
@@ -19,7 +19,7 @@ export type PostData = {
   summary: string;
   slug: string;
   contentHtml: string;
-}
+};
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -29,24 +29,24 @@ const postsDirectory = path.join(process.cwd(), 'posts');
  * @returns {Array<Object>} Sorted array of post data objects, each containing id, slug, and other metadata.
  */
 const getAllPostsData = (): PostData[] => {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData: PostData[] = fileNames.map((fileName) => {
-        const id = fileName.replace(/\.md$/, '');
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        return {
-            id,
-            slug: matterResult.data['slug'],
-            date: matterResult.data['date'],
-            title: matterResult.data['title'],
-            tags: matterResult.data['tags'],
-            summary: matterResult.data['summary'],
-            contentHtml: matterResult.content
-        };
-    });
-    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData: PostData[] = fileNames.map((fileName) => {
+    const id = fileName.replace(/\.md$/, '');
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
+    return {
+      id,
+      slug: matterResult.data['slug'],
+      date: matterResult.data['date'],
+      title: matterResult.data['title'],
+      tags: matterResult.data['tags'],
+      summary: matterResult.data['summary'],
+      contentHtml: matterResult.content,
+    };
+  });
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+};
 
 /**
  * Retrieves the post data for a given slug.
@@ -55,41 +55,41 @@ const getAllPostsData = (): PostData[] => {
  * @returns {Promise<Object>} The post data including slug, contentHtml, and other metadata.
  * @throws {Error} If no post with the given slug is found.
  */
-async function getPostData(slug:string): Promise<PostData> {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const matchedFile = fileNames.find((fileName) => {
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        return matterResult.data['slug'] === slug;
-    });
-
-    if (!matchedFile) {
-        throw new Error(`Post with slug '${slug}' not found`);
-    }
-
-    const fullPath = path.join(postsDirectory, matchedFile);
+async function getPostData(slug: string): Promise<PostData> {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const matchedFile = fileNames.find((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
+    return matterResult.data['slug'] === slug;
+  });
 
-    const processedContent = await unified()
-                                    .use(remarkParse)
-                                    .use(remarkGfm)
-                                    .use(remarkRehype)
-                                    .use(rehypeHighlight)
-                                    .use(rehypeStringify)
-                                    .process(matterResult.content);
-    const contentHtml = processedContent.toString();
+  if (!matchedFile) {
+    throw new Error(`Post with slug '${slug}' not found`);
+  }
 
-    return {
-        id: matterResult.data['id'],
-        title: matterResult.data['title'],
-        date: matterResult.data['date'],
-        tags: matterResult.data['tags'],
-        summary: matterResult.data['summary'],
-        slug,
-        contentHtml,
-    };
+  const fullPath = path.join(postsDirectory, matchedFile);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const matterResult = matter(fileContents);
+
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
+
+  return {
+    id: matterResult.data['id'],
+    title: matterResult.data['title'],
+    date: matterResult.data['date'],
+    tags: matterResult.data['tags'],
+    summary: matterResult.data['summary'],
+    slug,
+    contentHtml,
+  };
 }
 
 /**
@@ -97,19 +97,19 @@ async function getPostData(slug:string): Promise<PostData> {
  * @returns {string[]} Array of unique tags.
  */
 const getAllTags = (): Tags => {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allTags = fileNames.reduce((acc: string[], fileName: string) => {
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const matterResult = matter(fileContents);
-        if (matterResult.data['tags'] && Array.isArray(matterResult.data['tags'])) {
-            acc.push(...matterResult.data['tags']);
-        }
-        return acc;
-    }, []);
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allTags = fileNames.reduce((acc: string[], fileName: string) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
+    if (matterResult.data['tags'] && Array.isArray(matterResult.data['tags'])) {
+      acc.push(...matterResult.data['tags']);
+    }
+    return acc;
+  }, []);
 
-    // Remove duplicate tags
-    return Array.from(new Set(allTags));
-}
+  // Remove duplicate tags
+  return Array.from(new Set(allTags));
+};
 
 export { getAllPostsData, getPostData, getAllTags };

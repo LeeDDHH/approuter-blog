@@ -1,5 +1,5 @@
-import BlogClient from './BlogClient';
 import { getAllPostsData, getAllTags } from '../lib/utilities';
+import BlogClient from './BlogClient';
 
 export const metadata = {
   title: 'Blog',
@@ -12,6 +12,6 @@ const BlogPage = async () => {
   const allPostsData = getAllPostsData();
   const allTags = getAllTags();
 
-  return <BlogClient allPostsData={allPostsData} allTags={allTags} />
+  return <BlogClient allPostsData={allPostsData} allTags={allTags} />;
 };
 export default BlogPage;
