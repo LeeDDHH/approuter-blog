@@ -4,6 +4,11 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
+import { unified } from 'unified';
 
 export type Tags = string[];
 
@@ -69,7 +74,13 @@ async function getPostData(slug:string): Promise<PostData> {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
-    const processedContent = await remark().use(remarkGfm).use(html).process(matterResult.content);
+    const processedContent = await unified()
+                                    .use(remarkParse)
+                                    .use(remarkGfm)
+                                    .use(remarkRehype)
+                                    .use(rehypeHighlight)
+                                    .use(rehypeStringify)
+                                    .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
     return {

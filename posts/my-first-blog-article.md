@@ -19,3 +19,9 @@ table
 | a   | b   |
 | --- | --- |
 | a   | b   |
+
+```rs
+fn main() {
+    println!("Hello, Neptune!");
+}
+```
