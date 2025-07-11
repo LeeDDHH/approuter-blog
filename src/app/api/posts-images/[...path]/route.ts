@@ -3,7 +3,15 @@ import path from 'node:path';
 import { lookup } from 'mime-types';
 import { type NextRequest, NextResponse } from 'next/server';
 
-export async function GET(_request: NextRequest, { params }: { params: { path: string[] } }) {
+export async function handler(request: NextRequest, { params }: { params: { path: string[] } }) {
+  // GETリクエスト以外はエラーを返す
+  if (request.method !== 'GET') {
+    return NextResponse.json(
+      { error: 'Method not allowed' },
+      { status: 405, headers: { Allow: 'GET' } }
+    );
+  }
+
   try {
     const filePath = path.join(process.cwd(), 'posts', 'images', ...params.path);
 
