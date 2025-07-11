@@ -3,7 +3,7 @@ import path from 'node:path';
 import { lookup } from 'mime-types';
 import { type NextRequest, NextResponse } from 'next/server';
 
-export async function handler(request: NextRequest, { params }: { params: { path: string[] } }) {
+export const handler = async (request: NextRequest, { params }: { params: { path: string[] } }) => {
   // GETリクエスト以外はエラーを返す
   if (request.method !== 'GET') {
     return NextResponse.json(
@@ -48,4 +48,4 @@ export async function handler(request: NextRequest, { params }: { params: { path
     console.error('Error serving image:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-}
+};

@@ -32,7 +32,7 @@ const postsDirectory = path.join(process.cwd(), 'posts');
  * @returns {Function} HASTツリー構造を処理して画像パスを更新する関数
  * <img>タグの`src`属性を環境に応じて変換する
  */
-function rehypeImagePath() {
+const rehypeImagePath = () => {
   return (tree: Root) => {
     visit(tree, 'element', (node: Element) => {
       if (node.tagName === 'img' && node.properties && node.properties['src']) {
@@ -48,7 +48,7 @@ function rehypeImagePath() {
       }
     });
   };
-}
+};
 
 /**
  * postsディレクトリからすべてのマークダウンデータを取得して処理する
@@ -87,7 +87,7 @@ const getAllPostsData = (): PostData[] => {
  * @returns {Promise<Object>} slug、contentHtml、その他のメタデータを含む投稿データ
  * @throws {Error} 指定されたslugを持つ投稿が見つからない場合
  */
-async function getPostData(slug: string): Promise<PostData> {
+const getPostData = async (slug: string): Promise<PostData> => {
   const fileNames = fs.readdirSync(postsDirectory);
   const matchedFile = fileNames
     .filter((fileName) => fileName.endsWith('.md'))
@@ -125,7 +125,7 @@ async function getPostData(slug: string): Promise<PostData> {
     slug,
     contentHtml,
   };
-}
+};
 
 /**
  * postsからすべての一意のタグを取得する
