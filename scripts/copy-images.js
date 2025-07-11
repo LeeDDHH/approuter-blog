@@ -18,7 +18,7 @@ async function copyImages() {
   if (!fs.existsSync(postsImagesDir)) {
     console.log('posts/images directory does not exist. Creating...');
     fs.mkdirSync(postsImagesDir, { recursive: true });
-    return;
+    console.log('posts/images directory created. Proceeding with the copy process...');
   }
   
   // 既存のpublic/images内容をクリア
