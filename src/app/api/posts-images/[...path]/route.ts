@@ -3,14 +3,7 @@ import path from 'node:path';
 import { lookup } from 'mime-types';
 import { type NextRequest, NextResponse } from 'next/server';
 
-export const handler = async (request: NextRequest, { params }: { params: { path: string[] } }) => {
-  // GETリクエスト以外はエラーを返す
-  if (request.method !== 'GET') {
-    return NextResponse.json(
-      { error: 'Method not allowed' },
-      { status: 405, headers: { Allow: 'GET' } }
-    );
-  }
+export async function GET(request: NextRequest, { params }: { params: { path: string[] } }) {
 
   try {
     const filePath = path.join(process.cwd(), 'posts', 'images', ...params.path);
@@ -48,4 +41,4 @@ export const handler = async (request: NextRequest, { params }: { params: { path
     console.error('Error serving image:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-};
+}
