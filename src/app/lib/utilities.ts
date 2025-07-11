@@ -23,6 +23,7 @@ export type PostData = {
   contentHtml: string;
 };
 
+const LOCAL_IMAGE_PATH_PREFIX = './images/';
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 /**
@@ -37,12 +38,12 @@ function rehypeImagePath() {
       if (node.tagName === 'img' && node.properties && node.properties['src']) {
         const src = node.properties['src'];
         // ./images/... のパスを環境に応じて変換する
-        if (typeof src === 'string' && src.startsWith('./images/')) {
+        if (typeof src === 'string' && src.startsWith(LOCAL_IMAGE_PATH_PREFIX)) {
           // 開発時: /api/posts-images/... (API route直接)
           // 本番時: /images/... (public配下)
           const isDevelopment = process.env.NODE_ENV === 'development';
           const basePath = isDevelopment ? '/api/posts-images/' : '/images/';
-          node.properties['src'] = src.replace('./images/', basePath);
+          node.properties['src'] = src.replace(LOCAL_IMAGE_PATH_PREFIX, basePath);
         }
       }
     });
