@@ -29,7 +29,8 @@
         "useSortedClasses": "error"
       },
       "style": {
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "noCommonJs": "off"
       },
       "suspicious": {
         "noExplicitAny": "warn"

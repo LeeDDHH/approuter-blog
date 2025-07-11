@@ -45,8 +45,31 @@ describe('PostCassette', () => {
     expect(screen.getByText('1分前')).toBeInTheDocument();
   });
 
-  it('記事へのリンクが表示されること', () => {
-    const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', '/blog/test-post-slug');
+  it('タイトルリンクが正しく表示されること', () => {
+    const titleLink = screen.getByRole('link', { name: 'Test Post Title' });
+    expect(titleLink).toHaveAttribute('href', '/blog/test-post-slug');
+  });
+
+  it('Read moreリンクが正しいaria-labelで表示されること', () => {
+    const readMoreLink = screen.getByRole('link', { name: 'Read more about Test Post Title' });
+    expect(readMoreLink).toHaveAttribute('href', '/blog/test-post-slug');
+    expect(readMoreLink).toHaveTextContent('Read more');
+  });
+
+  it('両方のリンクが存在すること', () => {
+    const allLinks = screen.getAllByRole('link');
+    const postLinks = allLinks.filter(
+      (link) => link.getAttribute('href') === '/blog/test-post-slug'
+    );
+    expect(postLinks).toHaveLength(2);
+  });
+
+  it('リンクがそれぞれ異なる要素であること', () => {
+    const titleLink = screen.getByRole('link', { name: 'Test Post Title' });
+    const readMoreLink = screen.getByRole('link', { name: 'Read more about Test Post Title' });
+
+    expect(titleLink).not.toBe(readMoreLink);
+    expect(titleLink.textContent).toBe('Test Post Title');
+    expect(readMoreLink.textContent).toBe('Read more');
   });
 });

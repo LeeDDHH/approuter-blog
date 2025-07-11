@@ -5,7 +5,7 @@ import { useMemo } from 'react';
  * @param isoDate ISO 8601形式の日時文字列
  * @returns 何日前・何時間前・何分前かの文字列
  */
-export function useDaysAgo(isoDate: string): string {
+export const useDaysAgo = (isoDate: string): string => {
   return useMemo(() => {
     const now = new Date();
     const target = new Date(isoDate);
@@ -28,4 +28,4 @@ export function useDaysAgo(isoDate: string): string {
       return `${days}日前`;
     }
   }, [isoDate]);
-}
+};
