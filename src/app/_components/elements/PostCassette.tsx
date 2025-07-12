@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { useDaysAgo } from '../lib/hooks/useDaysAgo';
-import type { PostData } from '../lib/utilities';
-import AllTags from './domains/AllTags';
+import { useDaysAgo } from '../../lib/hooks/useDaysAgo';
+import type { PostData } from '../../lib/utilities';
+import AllTags from '../domains/AllTags';
 
 type PostCassetteProps = Omit<PostData, 'id' | 'contentHtml'>;
 

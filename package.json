@@ -11,7 +11,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "format": "biome format .",
-    "copy-images": "node scripts/copy-images.js"
+    "copy-images": "node scripts/copy-images.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "fontsource-montserrat": "^4.0.0",
@@ -31,7 +33,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
+    "@chromatic-com/storybook": "^4.0.1",
     "@eslint/eslintrc": "^3",
+    "@storybook/addon-a11y": "^9.0.16",
+    "@storybook/addon-docs": "^9.0.16",
+    "@storybook/addon-onboarding": "^9.0.16",
+    "@storybook/addon-vitest": "^9.0.16",
+    "@storybook/nextjs-vite": "^9.0.16",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -41,12 +49,18 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "eslint-plugin-storybook": "^9.0.16",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
+    "playwright": "^1.54.1",
+    "storybook": "^9.0.16",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }
