@@ -12,7 +12,7 @@ const meta = {
   },
   args: {
     title: 'Test Post Title',
-    date: '2025-01-01T00:00:00 ', // ISO 8601 形式の固定の日時
+    date: '2025-01-01T00:00:00', // ISO 8601 形式の固定の日時
     slug: 'test-post-slug',
     tags: ['test', 'example'],
     summary: 'This is a test excerpt for the post.',
