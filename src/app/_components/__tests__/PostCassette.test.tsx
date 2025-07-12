@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; // NOTE: toBeInTheDocumentを使うために必要
-import PostCassette from '../PostCassette';
+import PostCassette from '../elements/PostCassette';
 
 const mockPost = {
   title: 'Test Post Title',

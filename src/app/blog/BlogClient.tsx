@@ -1,5 +1,5 @@
 import AllTags from '../_components/domains/AllTags';
-import PostCassette from '../_components/PostCassette';
+import PostCassette from '../_components/elements/PostCassette';
 import type { PostData, Tags } from '../lib/utilities';
 
 type BlogClientProps = {
