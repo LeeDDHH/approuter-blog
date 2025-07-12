@@ -14,5 +14,15 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
+  viteFinal: async (config) => {
+    // Disable tree-shaking completely to avoid the extensibility error
+    if (config.build) {
+      config.build.rollupOptions = {
+        ...config.build.rollupOptions,
+        treeshake: false,
+      };
+    }
+    return config;
+  },
 };
 export default config;
