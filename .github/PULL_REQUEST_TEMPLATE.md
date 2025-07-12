@@ -74,19 +74,15 @@
 ## GitHub Copilot レビュー依頼
 
 <!-- GitHub Copilotによるコードレビューを活用するための項目 -->
-<!-- for GitHub Copilot review rule -->
 
 - [ ] コードの品質とベストプラクティスの確認を依頼
 - [ ] セキュリティ上の問題がないかの確認を依頼
 - [ ] パフォーマンスの観点での改善提案を依頼
 - [ ] アクセシビリティの確認を依頼
 
-<!-- for GitHub Copilot review rule -->
-
 ### Copilot への質問
 
 <!-- Copilotに特に確認してもらいたい点があれば記載してください -->
-<!-- for GitHub Copilot review rule -->
 
 @github-copilot この PR について以下の観点でレビューをお願いします：
 
