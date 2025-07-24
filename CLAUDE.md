@@ -85,3 +85,15 @@
 2. **SEO 最適化**: メタタグ、構造化データ、サイトマップの実装
 3. **パフォーマンス**: 画像最適化、コード分割、キャッシュ戦略
 4. **アクセシビリティ**: WCAG 準拠、スクリーンリーダー対応
+
+## 外部リソース
+
+### UI パーツ参考
+
+- [UI elements: CSS & Tailwind](https://uiverse.io/elements)
+
+### 全体的な UI の見た目の参考
+
+- [Dribbble - Discover the World’s Top Designers & Creative Professionals](https://dribbble.com/)
+- [Blog - Bionic Julia](https://bionicjulia.com/blog)
+- [Blog - Allan Fernandes](https://www.allanfernandes.dev/blog)
